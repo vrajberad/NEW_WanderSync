@@ -1,0 +1,37 @@
+# Example configuration — copy the structure into your application.yml.
+# Secrets come from environment variables; never commit real values.
+
+wandersync:
+  jwt:
+    # Must be >= 32 bytes. Generate with: openssl rand -base64 48
+    secret: ${WANDERSYNC_JWT_SECRET}
+    expiration-ms: 86400000   # 24h
+  cors:
+    # Comma-separated frontend origins
+    allowed-origins: ${WANDERSYNC_ALLOWED_ORIGINS:http://localhost:5173}
+  seat-lock:
+    cleanup-interval-ms: 60000
+  razorpay:
+    enabled: ${RAZORPAY_ENABLED:false}
+    key-id: ${RAZORPAY_KEY_ID:}
+    key-secret: ${RAZORPAY_KEY_SECRET:}
+    webhook-secret: ${RAZORPAY_WEBHOOK_SECRET:}
+    currency: ${RAZORPAY_CURRENCY:INR}
+
+spring:
+  ai:
+    model:
+      embedding:
+        text: ${AI_EMBEDDING_MODEL:none}
+    google:
+      genai:
+        api-key: ${GEMINI_API_KEY:}
+        embedding:
+          api-key: ${GEMINI_API_KEY:}
+          text:
+            options:
+              model: gemini-embedding-001
+              dimensions: 768
+  data:
+    mongodb:
+      uri: ${MONGODB_URI:mongodb://localhost:27017/wandersync}

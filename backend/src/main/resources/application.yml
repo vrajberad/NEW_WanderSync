@@ -1,0 +1,138 @@
+# Local development is the safe default. Use --spring.profiles.active=prod in production.
+spring:
+  profiles:
+    active: dev
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: dev
+  autoconfigure:
+    exclude:
+      - org.springframework.ai.vectorstore.mongodb.autoconfigure.MongoDBAtlasVectorStoreAutoConfiguration
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/wandersync
+  ai:
+    # Keep optional AI integrations from requiring credentials for local startup.
+    model:
+      chat: none
+      embedding:
+        text: ${AI_EMBEDDING_MODEL:none}
+    google:
+      genai:
+        api-key: ${GEMINI_API_KEY:}
+        embedding:
+          api-key: ${GEMINI_API_KEY:}
+          text:
+            # gemini-embedding-001 defaults to 3072 dimensions; 768 is requested here.
+            options:
+              model: gemini-embedding-001
+              dimensions: 768
+    vectorstore:
+      mongodb:
+        initialize-schema: false
+        collection-name: travel_knowledge
+        index-name: travel_knowledge_index
+        path-name: embedding
+  mail:
+    host: localhost
+    port: 1025
+
+wandersync:
+  jwt:
+    # Development-only fallback; replace via WANDERSYNC_JWT_SECRET outside local use.
+    secret: ${WANDERSYNC_JWT_SECRET:WanderSync-development-secret-key-change-me-32-bytes-minimum}
+    expiration-ms: 86400000
+  cors:
+    allowed-origins: http://localhost:5173
+  seat-lock:
+    cleanup-interval-ms: 60000
+  seed:
+    admin-email: ${WANDERSYNC_SEED_ADMIN_EMAIL:admin@wandersync.local}
+    admin-password: ${WANDERSYNC_SEED_ADMIN_PASSWORD:WanderSyncAdmin!2025}
+  rate-limit:
+    login:
+      capacity: 5
+      refill-window-seconds: 60
+  razorpay:
+    enabled: ${RAZORPAY_ENABLED:false}
+    key-id: ${RAZORPAY_KEY_ID:}
+    key-secret: ${RAZORPAY_KEY_SECRET:}
+    webhook-secret: ${RAZORPAY_WEBHOOK_SECRET:}
+    currency: ${RAZORPAY_CURRENCY:INR}
+  rag:
+    seed-on-startup: ${WANDERSYNC_RAG_SEED_ON_STARTUP:false}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: never
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: prod
+  data:
+    mongodb:
+      uri: ${MONGODB_URI}
+  ai:
+    model:
+      embedding:
+        text: ${AI_EMBEDDING_MODEL:none}
+    google:
+      genai:
+        api-key: ${GEMINI_API_KEY:}
+        embedding:
+          api-key: ${GEMINI_API_KEY:}
+          text:
+            options:
+              model: gemini-embedding-001
+              dimensions: 768
+    vectorstore:
+      mongodb:
+        initialize-schema: false
+        collection-name: travel_knowledge
+        index-name: travel_knowledge_index
+        path-name: embedding
+  mail:
+    host: ${MAIL_HOST:localhost}
+    port: ${MAIL_PORT:1025}
+    username: ${MAIL_USERNAME:}
+    password: ${MAIL_PASSWORD:}
+
+wandersync:
+  jwt:
+    secret: ${WANDERSYNC_JWT_SECRET}
+    expiration-ms: 86400000
+  cors:
+    allowed-origins: ${WANDERSYNC_ALLOWED_ORIGINS}
+  seat-lock:
+    cleanup-interval-ms: 60000
+  rate-limit:
+    login:
+      capacity: ${WANDERSYNC_LOGIN_RATE_LIMIT_CAPACITY:5}
+      refill-window-seconds: ${WANDERSYNC_LOGIN_RATE_LIMIT_REFILL_WINDOW_SECONDS:60}
+  razorpay:
+    enabled: ${RAZORPAY_ENABLED:true}
+    key-id: ${RAZORPAY_KEY_ID}
+    key-secret: ${RAZORPAY_KEY_SECRET}
+    webhook-secret: ${RAZORPAY_WEBHOOK_SECRET}
+    currency: ${RAZORPAY_CURRENCY:INR}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: never
