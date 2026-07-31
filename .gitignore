@@ -1,0 +1,18 @@
+# ---- Backend Ignores ----
+target/
+.idea/
+*.iml
+.env
+logs/
+*.log
+
+# ---- Frontend Ignores ----
+node_modules/
+dist/
+coverage/
+.vscode/
+
+# ---- OS Generated Files ----
+.DS_Store
+Thumbs.db
+desktop.ini
