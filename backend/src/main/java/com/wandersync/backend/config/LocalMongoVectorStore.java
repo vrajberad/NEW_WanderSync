@@ -5,7 +5,7 @@ import org.springframework.ai.embedding.EmbeddingModel;
 import org.springframework.ai.vectorstore.SearchRequest;
 import org.springframework.ai.vectorstore.VectorStore;
 import org.springframework.ai.vectorstore.filter.Filter;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+// import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
@@ -22,7 +22,7 @@ import java.util.Map;
  * Atlas Vector Search can replace this bean in a later profile.
  */
 @Component
-@ConditionalOnMissingBean(VectorStore.class)
+// @ConditionalOnMissingBean(VectorStore.class)
 public class LocalMongoVectorStore implements VectorStore {
 
     private final EmbeddingModel embeddingModel;
