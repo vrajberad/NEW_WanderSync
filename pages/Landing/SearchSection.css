@@ -1,0 +1,245 @@
+/* ===========================
+   SEARCH SECTION
+=========================== */
+
+.search-section{
+
+    height:calc(100vh - 80px);
+
+    display:flex;
+
+    align-items:center;
+
+    background:
+    linear-gradient(rgba(10,30,60,.55),rgba(10,30,60,.55)),
+    url("../../assets/LoginRegister/backgroundImage.avif");
+
+    background-size:cover;
+
+    background-position:center;
+
+    overflow:hidden;
+
+    scroll-margin-top:90px;
+
+}
+
+/* ===========================
+   CARD
+=========================== */
+
+.search-card{
+
+    background:rgba(255,255,255,.97);
+
+    backdrop-filter:blur(10px);
+
+    border-radius:25px;
+
+    padding:30px;
+
+    box-shadow:0 20px 45px rgba(0,0,0,.18);
+
+}
+
+/* ===========================
+   HEADER
+=========================== */
+
+.search-header{
+
+    text-align:center;
+
+    margin-bottom:25px;
+
+}
+
+.search-header h1{
+
+    font-size:3rem;
+
+    font-weight:800;
+
+    color:#1f2937;
+
+    margin-bottom:10px;
+
+}
+
+.search-header p{
+
+    font-size:17px;
+
+    color:#666;
+
+}
+
+/* ===========================
+   INPUTS
+=========================== */
+
+.form-control,
+.form-select{
+
+    height:52px;
+
+    border-radius:12px;
+
+    font-size:16px;
+
+}
+
+.form-control:focus,
+.form-select:focus{
+
+    border-color:#2563eb;
+
+    box-shadow:0 0 10px rgba(37,99,235,.25);
+
+}
+
+/* ===========================
+   BUTTON
+=========================== */
+
+.search-btn{
+
+    width:100%;
+
+    height:52px;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    border-radius:12px;
+
+}
+
+/* ===========================
+   AI CARD
+=========================== */
+
+.ai-card{
+
+    height:100%;
+
+    background:linear-gradient(135deg,#2563eb,#4338ca);
+
+    color:#fff;
+
+    border-radius:20px;
+
+    padding:28px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+}
+
+.ai-badge{
+
+    background:#fff;
+
+    color:#2563eb;
+
+    padding:8px 20px;
+
+    border-radius:30px;
+
+    font-weight:700;
+
+    margin-bottom:18px;
+
+}
+
+.ai-card h2{
+
+    font-size:2rem;
+
+    font-weight:700;
+
+    margin-bottom:15px;
+
+}
+
+.ai-card p{
+
+    line-height:1.7;
+
+    margin-bottom:25px;
+
+}
+
+.ai-btn{
+
+    background:#fff;
+
+    color:#2563eb;
+
+    border-radius:40px;
+
+    padding:12px 30px;
+
+    font-weight:700;
+
+}
+
+.ai-btn:hover{
+
+    background:#ffd54f;
+
+    color:#000;
+
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media(max-width:992px){
+
+.search-section{
+
+    height:auto;
+
+    padding:120px 0 60px;
+
+}
+
+.ai-card{
+
+    margin-top:20px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.search-header h1{
+
+    font-size:2rem;
+
+}
+
+.search-card{
+
+    padding:22px;
+
+}
+
+.ai-btn{
+
+    width:100%;
+
+}
+
+}

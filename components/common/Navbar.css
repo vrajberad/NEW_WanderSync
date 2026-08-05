@@ -1,0 +1,206 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+.custom-navbar{
+
+    height:90px;
+
+    background:rgba(255,255,255,.94);
+
+    backdrop-filter:blur(18px);
+
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+    z-index:999;
+
+}
+
+/* ===============================
+            Logo
+================================ */
+
+.logo{
+
+    font-family:'Poppins',sans-serif;
+
+    font-size:2rem;
+
+    font-weight:700;
+
+    color:#215FCB !important;
+
+    text-decoration:none;
+
+    letter-spacing:.5px;
+
+}
+
+/* ===============================
+        Navigation Links
+================================ */
+
+.navbar-nav{
+
+    gap:22px;
+
+}
+
+.nav-link{
+
+    font-family:'Poppins',sans-serif;
+
+    font-size:16px;
+
+    font-weight:500;
+
+    color:#4E5968 !important;
+
+    position:relative;
+
+    transition:.3s;
+
+}
+
+.nav-link:hover{
+
+    color:#2F80D1 !important;
+
+}
+
+.nav-link::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-6px;
+
+    width:0;
+
+    height:2px;
+
+    background:#2F80D1;
+
+    transition:.3s;
+
+}
+
+.nav-link:hover::after{
+
+    width:100%;
+
+}
+
+/* ===============================
+        Login Button
+================================ */
+
+.login-btn{
+
+    padding:10px 28px;
+
+    border-radius:12px;
+
+    border:2px solid #2F80D1;
+
+    background:white;
+
+    color:#2F80D1;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.login-btn:hover{
+
+    background:#2F80D1;
+
+    color:white;
+
+}
+
+/* ===============================
+        Register Button
+================================ */
+
+.register-btn{
+
+    padding:10px 28px;
+
+    border-radius:12px;
+
+    border:none;
+
+    background:#2F80D1;
+
+    color:white;
+
+    font-weight:600;
+
+    transition:.3s;
+
+    box-shadow:0 8px 18px rgba(47,128,209,.25);
+
+}
+
+.register-btn:hover{
+
+    background:#1E6FC2;
+
+    color:white;
+
+    transform:translateY(-2px);
+
+    box-shadow:0 12px 24px rgba(47,128,209,.35);
+
+}
+
+/* ===============================
+        Responsive
+================================ */
+
+@media(max-width:991px){
+
+.custom-navbar{
+
+    height:auto;
+
+    padding:12px 0;
+
+}
+
+.navbar-collapse{
+
+    background:white;
+
+    margin-top:15px;
+
+    padding:20px;
+
+    border-radius:18px;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.08);
+
+}
+
+.navbar-nav{
+
+    gap:8px;
+
+    margin-bottom:20px;
+
+}
+
+.login-btn,
+.register-btn{
+
+    width:100%;
+
+}
+
+}
