@@ -1,0 +1,259 @@
+/* ===========================
+   AI BANNER
+=========================== */
+
+.ai-banner{
+
+    height:calc(100vh - 80px);
+
+    display:flex;
+
+    align-items:center;
+
+    background:linear-gradient(135deg,#f7fbff,#eef5ff);
+
+    overflow:hidden;
+
+    scroll-margin-top:90px;
+
+}
+
+/* ===========================
+   IMAGE
+=========================== */
+
+.ai-image-box{
+
+    width:100%;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    box-shadow:0 20px 45px rgba(0,0,0,.15);
+
+}
+
+.ai-image-box img{
+
+    width:100%;
+
+    height:450px;
+
+    object-fit:cover;
+
+    transition:.4s;
+
+}
+
+.ai-image-box:hover img{
+
+    transform:scale(1.05);
+
+}
+
+/* ===========================
+   TAG
+=========================== */
+
+.ai-tag{
+
+    display:inline-block;
+
+    background:#dbeafe;
+
+    color:#2563eb;
+
+    padding:8px 18px;
+
+    border-radius:25px;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    margin-bottom:18px;
+
+}
+
+/* ===========================
+   TITLE
+=========================== */
+
+.ai-banner h2{
+
+    font-size:2.7rem;
+
+    font-weight:800;
+
+    line-height:1.15;
+
+    color:#1f2937;
+
+    margin-bottom:18px;
+
+}
+
+/* ===========================
+   DESCRIPTION
+=========================== */
+
+.ai-banner p{
+
+    color:#6b7280;
+
+    font-size:17px;
+
+    line-height:1.7;
+
+    margin-bottom:22px;
+
+}
+
+/* ===========================
+   FEATURES
+=========================== */
+
+.features{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:15px;
+
+    margin-bottom:25px;
+
+}
+
+.feature{
+
+    background:white;
+
+    border-radius:15px;
+
+    padding:15px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+.feature:hover{
+
+    transform:translateY(-5px);
+
+}
+
+.feature span{
+
+    font-size:24px;
+
+    display:block;
+
+    margin-bottom:8px;
+
+}
+
+.feature h5{
+
+    margin:0;
+
+    font-size:17px;
+
+    font-weight:600;
+
+}
+
+/* ===========================
+   BUTTON
+=========================== */
+
+.ai-btn{
+
+    background:#2563eb;
+
+    color:white;
+
+    border-radius:50px;
+
+    padding:13px 35px;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    width:220px;
+
+}
+
+.ai-btn:hover{
+
+    background:#1d4ed8;
+
+    color:white;
+
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media(max-width:992px){
+
+    .ai-banner{
+
+        height:auto;
+
+        padding:60px 0;
+
+    }
+
+    .ai-banner h2{
+
+        font-size:2.2rem;
+
+        text-align:center;
+
+    }
+
+    .ai-banner p{
+
+        text-align:center;
+
+    }
+
+    .features{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .ai-btn{
+
+        width:100%;
+
+    }
+
+    .ai-tag{
+
+        display:block;
+
+        width:max-content;
+
+        margin:0 auto 20px;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .ai-image-box img{
+
+        height:300px;
+
+    }
+
+}   
